@@ -12,7 +12,6 @@ const props = defineProps({
 const addToFavorites = (weatherInfo) => {
   let favorites = JSON.parse(localStorage.getItem('favorites')) || []
 
-
   const isDuplicate = favorites.some((favorite) => favorite?.city.id === weatherInfo.id)
 
   if (favorites.length < 5 && !isDuplicate) {
@@ -59,7 +58,7 @@ const addToFavorites = (weatherInfo) => {
 }
 
 .button:hover {
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 @media (max-width: 1020px) {
@@ -98,5 +97,4 @@ const addToFavorites = (weatherInfo) => {
     font-size: 12px;
   }
 }
-
 </style>

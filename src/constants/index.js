@@ -1,4 +1,4 @@
-import moment from "moment";
+import moment from 'moment'
 
 export const API_KEY = '4a65dfbf94aefd79b9979fd80645a114'
 export const BASE_URL = 'https://api.openweathermap.org/data/2.5/forecast'

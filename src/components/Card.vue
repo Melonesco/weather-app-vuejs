@@ -1,5 +1,5 @@
 <script setup>
-import {getWeekday, getMonth, getTime} from "../constants/index";
+import { getWeekday, getMonth, getTime } from '../constants/index'
 import Chart from './Chart.vue'
 
 const props = defineProps({
@@ -21,7 +21,6 @@ const formatTimestampWithoutSeconds = (timestamp) => {
   return `${hours}:${minutes}`
 }
 </script>
-
 
 <template>
   <div class="card">
@@ -271,5 +270,4 @@ const formatTimestampWithoutSeconds = (timestamp) => {
     font-size: 11px;
   }
 }
-
 </style>

@@ -1,12 +1,11 @@
 <script setup>
-import {getWeekday, getMonth, getTime} from "../constants/index";
-
+import { getWeekday, getMonth, getTime } from '../constants/index'
 
 const props = defineProps({
   weatherInfo: {
     type: [Object, null],
     required: true
-  },
+  }
 })
 </script>
 
@@ -31,8 +30,10 @@ const props = defineProps({
 }
 
 .container-inner {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
@@ -66,4 +67,58 @@ const props = defineProps({
   height: auto;
   object-fit: cover;
 }
+
+@media (max-width: 1050px) {
+  .container {
+    width: 120px;
+  }
+
+  .container-title {
+    font-size: 14px;
+  }
+
+  .container-date {
+    font-size: 12px;
+  }
+
+  .container-degree {
+    font-size: 16px;
+    margin: 4px 0;
+  }
+
+  .container-time {
+    font-size: 12px;
+  }
+
+  .container-img {
+    width: 60px;
+  }
+}
+
+@media (max-width: 770px) {
+  .container {
+    width: 80px;
+  }
+
+  .container-title {
+    font-size: 10px;
+  }
+
+  .container-date {
+    font-size: 10px;
+  }
+
+  .container-degree {
+    font-size: 12px;
+  }
+
+  .container-time {
+    font-size: 10px;
+  }
+
+  .container-img {
+    width: 50px;
+  }
+}
+
 </style>

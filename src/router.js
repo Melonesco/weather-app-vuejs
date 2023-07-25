@@ -5,7 +5,7 @@ import Favorites from './components/Favorites.vue'
 export default createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/home', component: Home, alias: '/' },
+    { path: '/', component: Home, alias: '/' },
     { path: '/favorites', component: Favorites }
   ]
 })

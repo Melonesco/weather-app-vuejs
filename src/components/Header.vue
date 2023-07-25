@@ -12,16 +12,10 @@ const handleButtonChange = (buttonName) => {
   <header class="header">
     <img src="./icons/earth.png" class="header__logo" alt="img" />
     <div class="header__nav">
-      <router-link
-        to="/home"
-        class="header__button"
-        @click="handleButtonChange('home')"
+      <router-link to="/" class="header__button" @click="handleButtonChange('home')"
         >Home</router-link
       >
-      <router-link
-        to="/favorites"
-        class="header__button"
-        @click="handleButtonChange('favorites')"
+      <router-link to="/favorites" class="header__button" @click="handleButtonChange('favorites')"
         >Favorites</router-link
       >
     </div>
@@ -69,7 +63,6 @@ const handleButtonChange = (buttonName) => {
 }
 
 @media (max-width: 1020px) {
-
   .header__nav {
     gap: 20px;
   }
@@ -99,6 +92,4 @@ const handleButtonChange = (buttonName) => {
     padding: 8px 16px;
   }
 }
-
-
 </style>

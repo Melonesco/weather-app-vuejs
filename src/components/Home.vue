@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios'
-import {API_KEY, BASE_URL, getMonth} from '../constants'
+import { API_KEY, BASE_URL, getMonth } from '../constants'
 import { ref, onMounted, reactive } from 'vue'
 import Card from '../components/Card.vue'
 import Test from './Chart.vue'
@@ -69,7 +69,7 @@ export default {
       }
     }
 
-    const addCard = () => cards.length < maxCards && cards.push({ weatherInfo: null });
+    const addCard = () => cards.length < maxCards && cards.push({ weatherInfo: null })
     const setActiveIndex = (index) => (activeIndex.value = index)
     const isActive = (index) => activeIndex.value === index
 
@@ -155,7 +155,7 @@ export default {
       return highestTemperaturesByDate.slice(0, 5)
     }
 
-    const changeStatus = (status) => fiveDaysButtonStatus.value = status
+    const changeStatus = (status) => (fiveDaysButtonStatus.value = status)
 
     onMounted(() => {
       askForLocation()
@@ -222,15 +222,11 @@ export default {
       v-if="fiveDaysButtonStatus && card.weatherInfo"
       v-for="date in highestTemperatures"
       :key="date.id"
+      class="card-blocks"
     >
-      <WeatherBlock
-        :weather-info="date"
-      />
+      <WeatherBlock :weather-info="date" />
     </div>
-    <Card
-      v-else-if="card.weatherInfo"
-      :weatherInfo="card.weatherInfo"
-    />
+    <Card v-else-if="card.weatherInfo" :weatherInfo="card.weatherInfo" />
     <div v-else class="card-empty">
       <h2 class="card-empty-text">Add a city to see the weather</h2>
     </div>
@@ -337,6 +333,10 @@ export default {
   background-color: red;
 }
 
+.card-blocks {
+  margin: 60px 10px 40px 10px;
+}
+
 .card-empty {
   width: 100%;
   display: flex;
@@ -365,16 +365,6 @@ export default {
     font-size: 12px;
   }
 
-  .button-plus {
-    width: 28px;
-    padding: 6px;
-  }
-
-  .card-close {
-    width: 28px;
-    padding: 6px;
-  }
-
   .card-empty {
     height: 200px;
     text-align: center;
@@ -400,22 +390,8 @@ export default {
     width: 240px;
   }
 
-  .button-plus {
-    width: 24px;
-    padding: 4px;
-  }
-
-  .card-close {
-    width: 24px;
-    padding: 4px;
-  }
-
   .cards {
     margin: 20px 0;
-  }
-
-  .card-number {
-    font-size: 18px;
   }
 
   .card-empty {
@@ -447,5 +423,4 @@ export default {
     font-size: 12px;
   }
 }
-
 </style>

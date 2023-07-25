@@ -22,26 +22,29 @@ const removeFromFavorites = (id, name) => {
     alert('City not found in favorites')
   }
 }
-
 </script>
 
 <template>
   <h2 class="title">Favorites: {{ cities.length }}</h2>
   <div class="container" v-for="(city, index) in cities" v-if="cities.length > 0">
     <Card
-        :key="city.id"
-        :weatherInfo="city"
-        :removeButtonStatus="removeButtonStatus"
-        :removeButton="removeFromFavorites"
+      :key="city.id"
+      :weatherInfo="city"
+      :removeButtonStatus="removeButtonStatus"
+      :removeButton="removeFromFavorites"
     />
-    <h2 class="number">{{index + 1}}</h2>
-    <img class="close" src="./icons/close.png" alt="" @click="() => removeFromFavorites(city.city.id, city.city.name)" />
+    <h2 class="number">{{ index + 1 }}</h2>
+    <img
+      class="close"
+      src="./icons/close.png"
+      alt=""
+      @click="() => removeFromFavorites(city.city.id, city.city.name)"
+    />
   </div>
   <h2 class="empty" v-else>Empty</h2>
 </template>
 
 <style scoped>
-
 .container {
   background-color: darkslateblue;
   border-radius: 4px;
