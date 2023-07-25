@@ -18,8 +18,8 @@ npm run dev
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Prettier
 
 ```sh
-npm run lint
+npm run format
 ```
