@@ -120,5 +120,4 @@ const props = defineProps({
     width: 50px;
   }
 }
-
 </style>

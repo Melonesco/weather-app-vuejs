@@ -1,6 +1,7 @@
 <script setup>
 import { getWeekday, getMonth, getTime } from '../constants/index'
 import Chart from './Chart.vue'
+import { onMounted } from 'vue'
 
 const props = defineProps({
   weatherInfo: {

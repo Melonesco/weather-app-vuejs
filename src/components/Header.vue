@@ -1,23 +1,11 @@
-<script setup>
-import { ref } from 'vue'
-
-const activeButton = ref('home')
-
-const handleButtonChange = (buttonName) => {
-  activeButton.value = buttonName
-}
-</script>
+<script setup></script>
 
 <template>
   <header class="header">
     <img src="./icons/earth.png" class="header__logo" alt="img" />
     <div class="header__nav">
-      <router-link to="/" class="header__button" @click="handleButtonChange('home')"
-        >Home</router-link
-      >
-      <router-link to="/favorites" class="header__button" @click="handleButtonChange('favorites')"
-        >Favorites</router-link
-      >
+      <router-link to="/" class="header__button">Home</router-link>
+      <router-link to="/favorites" class="header__button">Favorites</router-link>
     </div>
   </header>
 </template>

@@ -3,7 +3,6 @@ import { ref } from 'vue'
 import Card from './Card.vue'
 
 const cities = ref(JSON.parse(localStorage.getItem('favorites')) || [])
-const removeButtonStatus = ref(true)
 
 const removeFromFavorites = (id, name) => {
   let favorites = JSON.parse(localStorage.getItem('favorites')) || []
@@ -27,12 +26,7 @@ const removeFromFavorites = (id, name) => {
 <template>
   <h2 class="title">Favorites: {{ cities.length }}</h2>
   <div class="container" v-for="(city, index) in cities" v-if="cities.length > 0">
-    <Card
-      :key="city.id"
-      :weatherInfo="city"
-      :removeButtonStatus="removeButtonStatus"
-      :removeButton="removeFromFavorites"
-    />
+    <Card :weatherInfo="city" />
     <h2 class="number">{{ index + 1 }}</h2>
     <img
       class="close"
