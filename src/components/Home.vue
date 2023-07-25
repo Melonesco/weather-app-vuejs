@@ -6,13 +6,15 @@ import Card from '../components/Card.vue'
 import Test from './Chart.vue'
 import WeatherBlock from './WeatherBlock.vue'
 import CardButtons from './CardButtons.vue'
+import Loader from './Loader.vue'
 
 export default {
   components: {
     CardButtons,
     WeatherBlock,
     Card,
-    Test
+    Test,
+    Loader
   },
   setup() {
     const cards = reactive([{ weatherInfo: null }])
@@ -30,6 +32,7 @@ export default {
 
     const highestTemperaturesByDate = []
     const fiveDaysButtonStatus = ref(false)
+    const loading = ref(false);
 
     onMounted(() => {
       let autocomplete
@@ -43,6 +46,7 @@ export default {
     })
 
     const getWeather = async () => {
+      loading.value = true;
       city.value = selectedPlace ? selectedPlace.name : city.value
 
       const lan = selectedPlace ? selectedPlace.geometry?.location.lat() : location.value?.latitude
@@ -54,7 +58,7 @@ export default {
             `${BASE_URL}?lat=${lan}&lon=${lon}&units=metric&appid=${API_KEY}`
           )
 
-          const cityExists = cards.some((card) => card.weatherInfo?.id === res.data.city.id)
+          const cityExists = cards.some((card) => card.weatherInfo?.city.id === res.data.city.id)
 
           if (cityExists) {
             alert('Such a city already exists in your block!')
@@ -65,6 +69,8 @@ export default {
           }
         } catch (error) {
           console.error('Error in the weather-icons request: ', error)
+        } finally {
+          loading.value = false;
         }
       }
     }
@@ -180,7 +186,8 @@ export default {
       weatherInfo,
       getWeather,
       addCard,
-      getMonth
+      getMonth,
+      loading
     }
   }
 }
@@ -226,7 +233,11 @@ export default {
     >
       <WeatherBlock :weather-info="date" />
     </div>
-    <Card v-else-if="card.weatherInfo" :weatherInfo="card.weatherInfo" />
+    <Card
+        v-else-if="card.weatherInfo"
+        :weatherInfo="card.weatherInfo"
+        :loading="loading"
+    />
     <div v-else class="card-empty">
       <h2 class="card-empty-text">Add a city to see the weather</h2>
     </div>
@@ -302,6 +313,7 @@ export default {
 }
 
 .cards {
+  min-height: 300px;
   background-color: darkslateblue;
   border-radius: 4px;
   width: 100%;
