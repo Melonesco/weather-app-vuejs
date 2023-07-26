@@ -70,12 +70,12 @@ const formatTimestampWithoutSeconds = (timestamp) => {
       </div>
     </div>
   </div>
-  <!--  <div class="card-chart">-->
-  <!--    <Chart-->
-  <!--      :weatherInfo="weatherInfo"-->
-  <!--      :formatTimestampWithoutSeconds="formatTimestampWithoutSeconds"-->
-  <!--    />-->
-  <!--  </div>-->
+    <div class="card-chart">
+      <Chart
+        :weatherInfo="weatherInfo"
+        :formatTimestampWithoutSeconds="formatTimestampWithoutSeconds"
+      />
+    </div>
 </template>
 
 <style scoped>
