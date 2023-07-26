@@ -2,10 +2,15 @@
 const props = defineProps({
   weatherInfo: {
     type: [Object, null],
-    required: true
+    required: false
   },
   changeStatus: {
-    type: Function
+    type: Function,
+    required: false
+  },
+  favoriteButtonStatus: {
+    type: Boolean,
+    required: false
   }
 })
 
@@ -30,7 +35,9 @@ const addToFavorites = (weatherInfo) => {
   <div class="buttons">
     <button class="button" @click="() => changeStatus(false)">1 day</button>
     <button class="button" @click="() => changeStatus(true)">5 days</button>
-    <button class="button" @click="() => addToFavorites(weatherInfo)">Add to favorites</button>
+    <button class="button" v-if="favoriteButtonStatus" @click="() => addToFavorites(weatherInfo)">
+      Add to favorites
+    </button>
   </div>
 </template>
 

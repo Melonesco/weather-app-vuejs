@@ -1,23 +1,32 @@
 <script setup>
 import { Chart, registerables } from 'chart.js'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, onBeforeUnmount } from 'vue'
 import moment from 'moment'
 
 const props = defineProps({
   weatherInfo: {
-    type: Object,
-    required: true
+    type: Object
   },
   formatTimestampWithoutSeconds: {
-    type: Function,
-    required: true
+    type: Function
   }
 })
 
 const labels = ref([])
 const data = ref(null)
+let chartInstance = null
 
 onMounted(() => {
+  createChart()
+})
+
+onBeforeUnmount(() => {
+  if (chartInstance) {
+    chartInstance.destroy()
+  }
+})
+
+const createChart = () => {
   const formatTimestampWithoutSeconds = (timestamp) =>
     moment(timestamp, 'YYYY-MM-DD HH:mm:ss').format('HH:mm')
 
@@ -42,7 +51,7 @@ onMounted(() => {
 
   const ctx = document.getElementById('myChart')
   Chart.register(...registerables)
-  new Chart(ctx, {
+  chartInstance = new Chart(ctx, {
     type: 'line',
     data: data.value,
     options: {
@@ -63,7 +72,7 @@ onMounted(() => {
       }
     }
   })
-})
+}
 </script>
 
 <template>

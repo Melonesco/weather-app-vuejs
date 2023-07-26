@@ -31,7 +31,7 @@ const removeFromFavorites = (id, name) => {
     <img
       class="close"
       src="./icons/close.png"
-      alt=""
+      alt="img"
       @click="() => removeFromFavorites(city.city.id, city.city.name)"
     />
   </div>

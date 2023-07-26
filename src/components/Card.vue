@@ -28,7 +28,7 @@ const formatTimestampWithoutSeconds = (timestamp) => {
 
 <template>
   <div v-if="loading" class="loader-container">
-    <Loader/>
+    <Loader />
   </div>
   <div v-else class="card">
     <div class="card__container">
@@ -70,12 +70,12 @@ const formatTimestampWithoutSeconds = (timestamp) => {
       </div>
     </div>
   </div>
-<!--  <div class="card-chart">-->
-<!--    <Chart-->
-<!--      :weatherInfo="weatherInfo"-->
-<!--      :formatTimestampWithoutSeconds="formatTimestampWithoutSeconds"-->
-<!--    />-->
-<!--  </div>-->
+  <!--  <div class="card-chart">-->
+  <!--    <Chart-->
+  <!--      :weatherInfo="weatherInfo"-->
+  <!--      :formatTimestampWithoutSeconds="formatTimestampWithoutSeconds"-->
+  <!--    />-->
+  <!--  </div>-->
 </template>
 
 <style scoped>
@@ -154,21 +154,18 @@ const formatTimestampWithoutSeconds = (timestamp) => {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-
 .loader-container {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(255,255,255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10;
 }
-
-
 
 @media (max-width: 1020px) {
   .card {

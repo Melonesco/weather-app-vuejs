@@ -4,9 +4,7 @@
   </div>
 </template>
 
-<script>
-
-</script>
+<script></script>
 
 <style>
 .center-body {
@@ -27,7 +25,7 @@ body {
 }
 .loader-circle-25:after,
 .loader-circle-25:before {
-  content: "";
+  content: '';
   display: inline-block;
   position: relative;
   border-radius: 50%;

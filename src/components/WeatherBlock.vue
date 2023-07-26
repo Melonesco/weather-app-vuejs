@@ -27,6 +27,7 @@ const props = defineProps({
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   padding: 10px;
+  margin: 60px 10px 40px 10px;
 }
 
 .container-inner {
@@ -118,6 +119,40 @@ const props = defineProps({
 
   .container-img {
     width: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 240px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 10px;
+    margin: 60px 10px 40px 10px;
+  }
+
+  .container-title {
+    font-size: 28px;
+  }
+
+  .container-date {
+    font-size: 20px;
+  }
+
+  .container-degree {
+    color: #ffffff;
+    font-size: 24px;
+  }
+
+  .container-time {
+    font-size: 16px;
+    margin-top: 4px;
+  }
+
+  .container-img {
+    width: 120px;
+    height: auto;
+    object-fit: cover;
   }
 }
 </style>

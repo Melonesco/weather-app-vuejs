@@ -32,7 +32,7 @@ export default {
 
     const highestTemperaturesByDate = []
     const fiveDaysButtonStatus = ref(false)
-    const loading = ref(false);
+    const loading = ref(false)
 
     onMounted(() => {
       let autocomplete
@@ -46,7 +46,7 @@ export default {
     })
 
     const getWeather = async () => {
-      loading.value = true;
+      loading.value = true
       city.value = selectedPlace ? selectedPlace.name : city.value
 
       const lan = selectedPlace ? selectedPlace.geometry?.location.lat() : location.value?.latitude
@@ -70,7 +70,7 @@ export default {
         } catch (error) {
           console.error('Error in the weather-icons request: ', error)
         } finally {
-          loading.value = false;
+          loading.value = false
         }
       }
     }
@@ -233,11 +233,7 @@ export default {
     >
       <WeatherBlock :weather-info="date" />
     </div>
-    <Card
-        v-else-if="card.weatherInfo"
-        :weatherInfo="card.weatherInfo"
-        :loading="loading"
-    />
+    <Card v-else-if="card.weatherInfo" :weatherInfo="card.weatherInfo" :loading="loading" />
     <div v-else class="card-empty">
       <h2 class="card-empty-text">Add a city to see the weather</h2>
     </div>
@@ -346,7 +342,6 @@ export default {
 }
 
 .card-blocks {
-  margin: 60px 10px 40px 10px;
 }
 
 .card-empty {
@@ -404,6 +399,9 @@ export default {
 
   .cards {
     margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 160px;
   }
 
   .card-empty {
